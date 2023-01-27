@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="studentlogin.css">
+        <title>STUDENT</title>
+        <link rel="shortcut icon" href="../Images/favicon.ico" type="image/x-icon">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <!--Fonts-->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
+    <body>
+
+          <!--Student Login-->
+          <div class="select-membership">
+            <div id="circle">
+              <i id="user" class="material-icons">account_circle</i>
+              <p id="signin">Sign In</p>
+              
+
+              <!--Login Form-->
+              <form onsubmit="toSelect()" action="../SelectFacility/selectfacility.html">
+                <label for="fname">Student ID</label>
+                <input type="text" id="stuid" name="studentid" placeholder="Student ID">
+            
+                <label for="lname">Password</label>
+                <input type="text" id="pass" name="password" placeholder="Password">
+              
+                <input id="sub2" type="submit" value="LOG IN"></input>
+              </form>
+            </div>
+          </div>
+
+        <!--Top Navigation Bar-->
+        <nav class="nav-bar">
+          <div id="logo"><a href="../index.html"><img src="../Images/UPSA Logo.png" alt="anulogo"></a></div>
+          <div class="hamburger">
+            <div class="line-1"></div>
+            <div class="line-2"></div>
+            <div class="line-3"></div>
+          </div>
+          <ul class="nav-links">
+            <li><a href="#" class="nav-link">ABOUT</a></li>
+            <li><a href="#" class="nav-link">FACILITIES</a></li>
+            <li><a href="#" class="nav-link">CONTACTS</a></li>
+            <li><a href="#" class="nav-link">ADMISSIONS</a></li>
+            <li><a href="#" class="nav-link">MEDIA</a></li>
+            <li><a href="#" class="nav-link">ALUMNI</a></li>
+          </ul>
+        </nav>
+        <button class="button button5"></button>
+        
+          <script src="/script.js"></script>
+          <script src="../StudentLogin/studentLogin.js"></script>
+        
+    </body>
+    
+</html>
+
+
