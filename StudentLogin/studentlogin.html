@@ -23,14 +23,16 @@
               
 
               <!--Login Form-->
-              <form onsubmit="toSelect()" action="../SelectFacility/selectfacility.html">
+            
+              <form method="POST" action="../config/action.php">
                 <label for="fname">Student ID</label>
-                <input type="text" id="stuid" name="studentid" placeholder="Student ID">
+                <input type="text" id="stuid" name="student_id" placeholder="Student ID">
             
                 <label for="lname">Password</label>
                 <input type="text" id="pass" name="password" placeholder="Password">
+                <input type="hidden" id="" name="user_type" value="STUDENT"/>
               
-                <input id="sub2" type="submit" value="LOG IN"></input>
+                <input id="sub2" name="btn_loginStudent" type="submit" value="LOG IN"></input>
               </form>
             </div>
           </div>

@@ -1,3 +1,12 @@
+<?php
+include '../config/db.php';
+
+if(isset($_SESSION['uid'])){
+  $userType =  $_SESSION['user_type'];
+  $userName =  $_SESSION['fname'];
+}
+
+?>
 <!DOCTYPE html>
 
 <html lang="en">
