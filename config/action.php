@@ -53,6 +53,51 @@ if(isset($_POST['btn_loginStudent'])){
         header("Location: ../StudentLogin/studentlogin.php?failed");
     }
 }
+if(isset($_POST['btn_loginSGuest'])){
+    $email = mysqli_real_escape_string($conn, $_POST['email']);
+    // $userType = mysqli_real_escape_string($conn, $_POST['user_type']);
+
+   
+   echo $email = sanitize($email);
+  
+    $sql = "SELECT * FROM users WHERE email = '$email'";
+    $query = mysqli_query($conn, $sql);
+  
+    echo $count = mysqli_num_rows($query);
+
+// die();
+
+    if($count > 0){
+
+        $row = mysqli_fetch_assoc($query);
+        $_SESSION['uid'] =  $row['id'];
+        $_SESSION['user_type'] =  $row['user_type'];
+        $_SESSION['fname'] =  $row['name'];
+        var_dump($row);
+        
+        if($_SESSION['user_type'] == 'GUEST'){
+            header("Location: ../SelectFacility/selectfacility.php?logged-in");
+        }else {
+           //GUEST
+           header("Location: ../guest/index.php?logged-in");
+           
+        }
+      
+    }else{
+        echo'Ready to install';
+        $sqlIn = "INSERT INTO `users`(`email`, `user_type`, `name`, `phone`, `student_id`, `password`) VALUES('$email', 'GUEST', 'Guest','', '', '')";
+        $sqlQue = mysqli_query($conn,$sqlIn);
+         print("Errors in the UPDATE query: ".mysqli_error($conn)."\n");
+        // die();
+        if($sqlQue){
+            $_SESSION['uid'] =  mysqli_insert_id($conn);
+            $_SESSION['user_type'] =  'GUEST';
+            header("Location: ../SelectFacility/selectfacility.php?logged-in");
+        }
+        // $_SESSION['error'] = "Oops Invalid login credentials.. Please try again";
+        // header("Location: ../StudentLogin/studentlogin.php?failed");
+    }
+}
 
 if(isset($_POST['handleBookingSubmit'])){
    echo $firstname = mysqli_real_escape_string($conn, $_POST['firstname']);
@@ -110,7 +155,7 @@ if(isset($_GET['logout'])){
     $_SESSION['fname'] = "";
     session_destroy();
     session_unset();
-    header("Location: ../SStudentLogin/studentlogin.php");
+    header("Location: ../index.html");
 }
 // Logout Admin
 if(isset($_GET['logout-admin'])){
@@ -120,6 +165,6 @@ if(isset($_GET['logout-admin'])){
     $_SESSION['fname'] = "";
     session_destroy();
     session_unset();
-    header("Location: ../MemberLogin/memberlogin.html");
+    header("Location: ../index.html");
 }
 

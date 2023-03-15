@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="guestLogin.css">
+        <title>ADMINISTRATION: Book A Facility</title>
+        <link rel="shortcut icon" href="../Images/favicon.ico" type="image/x-icon">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <!--Fonts-->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
+    <body>
+
+          <!--Member Login-->
+          <div class="select-membership">
+            <div id="circle">
+              <i id="user" class="material-icons">account_circle</i>
+              <p id="signin">Enter Email</p>
+
+              <!--Login Form-->
+              <form  method="post" action="../config/action.php">
+                <label for="email">Email Address</label>
+                <input type="text" id="email" name="email" placeholder="example@gmail.com">
+            
+                <!-- <label for="lname">Password</label>
+                <input type="text" id="pass" name="password" placeholder="Password"> -->
+              
+                <input id="sub" type="submit" name="btn_loginSGuest" value="View Facilities"></input>
+              </form>
+            </div>
+          </div>
+
+        <!--Top Navigation Bar-->
+        <nav class="nav-bar">
+          <div id="logo"><a href="../index.html"><img src="../Images/UPSA Logo.png" alt="anulogo"></a></div>
+          <div class="hamburger">
+            <div class="line-1"></div>
+            <div class="line-2"></div>
+            <div class="line-3"></div>
+          </div>
+          
+          <ul class="nav-links">
+            <li><a href="#" class="nav-link">ABOUT</a></li>
+            <li><a href="#" class="nav-link">FACILITIES</a></li>
+            <li><a href="#" class="nav-link">CONTACTS</a></li>
+            <li><a href="#" class="nav-link">ADMISSIONS</a></li>
+            <li><a href="#" class="nav-link">MEDIA</a></li>
+            <li><a href="#" class="nav-link">ALUMNI</a></li>
+          </ul>
+          
+        </nav>
+        <button class="button button5"></button>
+          <script src="/script.js"></script>
+          <script src="../MemberLogin/memberLogin.js"></script>
+        
+    </body>
+    
+</html>
+
+

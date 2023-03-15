@@ -20,5 +20,5 @@ function memberLogin() {
 }
 
 function publicLogin() {
-    location.href = "SelectFacility/selectfacility.php";
+    location.href = "GuestLogin/guestLogin.php";
 }

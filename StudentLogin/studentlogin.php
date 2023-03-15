@@ -21,6 +21,21 @@
             <div id="circle">
               <i id="user" class="material-icons">account_circle</i>
               <p id="signin">Sign In</p>
+
+               <!--Error Message-->
+               <?php
+               if(isset($_GET['failed'])){
+                 ?>
+             <div id="error_message" style=" ">
+                 <p style="border: 2px dotted red; color: red; text-align:center; padding: 10px 0px; border-radius: 4pc; background:white; position:relative; top: -50px;"><?php echo 'Please your student Id / Password is incorrect' ?></p>
+              </div>
+                 <?php
+               }else{
+                 echo '';
+               }
+               ?>
+
+              
               
 
               <!--Login Form-->
@@ -37,6 +52,8 @@
               </form>
             </div>
           </div>
+
+      
 
         <!--Top Navigation Bar-->
         <nav class="nav-bar">
@@ -64,6 +81,8 @@
           <script src="../StudentLogin/studentLogin.js"></script>
         
     </body>
+
+
     
 </html>
 

@@ -4,7 +4,7 @@ session_start();
 
 if(isset($_SESSION['uid'])){
   $userType =  $_SESSION['user_type'];
-  $userName =  $_SESSION['fname'];
+  // $userName =  $_SESSION['fname'];
 }else{
   header("Location: ../StudentLogin/studentlogin.php?error=login first");
 
