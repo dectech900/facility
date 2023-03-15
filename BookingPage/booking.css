@@ -136,6 +136,18 @@ input[type=text] {
   border: 1px solid #000;
   border-radius: 3px;
 }
+input[type=date] {
+  /* width: 100; */
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid #000;
+  border-radius: 3px;
+}
+input[name=facility] {
+
+  background:  rgb(202, 255, 215);
+  border: 1px solid white;
+}
 
 .flname {
   width: 110%;

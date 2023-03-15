@@ -1,10 +1,16 @@
 <?php
 include '../config/db.php';
+session_start();
 
 if(isset($_SESSION['uid'])){
   $userType =  $_SESSION['user_type'];
   $userName =  $_SESSION['fname'];
+}else{
+  header("Location: ../StudentLogin/studentlogin.php?error=login first");
+
 }
+
+
 
 ?>
 <!DOCTYPE html>
@@ -31,41 +37,42 @@ if(isset($_SESSION['uid'])){
           <!--Ovals-->
           <div class="cell" id="ovalcell"><p>Auditorium</p>
             <div class="menu">
-                <a href="../BookingPage/booking.html">Main Auditorium</a>
-                <a href="../BookingPage/booking.html">LBC Auditorium </a>
-                <a href="../BookingPage/booking.html">Side Confrence Auditorium</a>
+                <a href="../BookingPage/booking.php?facility=Main Auditorium">Main Auditorium</a>
+                <a href="../BookingPage/booking.php?facility=LBC Auditorium">LBC Auditorium </a>
+                <a href="../BookingPage/booking.php?facility=Side Confrence Auditorium">Side Confrence Auditorium</a>
             </div>
           </div>
 
           <!--Rooms-->
           <div class="cell"><p>Rooms</p>
             <div class="menu" id="room">
-              <a href="../BookingPage/booking.html">Main Confrence Hall</a>
-              <a href="../BookingPage/booking.html">LBC Ground Floor</a>
-              <a href="../BookingPage/booking.html">LBC Second Floor</a>
-              <a href="../BookingPage/booking.html">LBC Third  Floor</a>
-              <a href="../BookingPage/booking.html">LBC Forth  Floor</a>
+              <a href="../BookingPage/booking.php?facility=Main Confrence Hall">Main Confrence Hall</a>
+              <a href="../BookingPage/booking.php?facility=LBC Ground Floor">LBC Ground Floor</a>
+              <a href="../BookingPage/booking.php?facility=LBC Second Floor">LBC Second Floor</a>
+              <a href="../BookingPage/booking.php?facility=LBC Third  Floor">LBC Third  Floor</a>
+              <a href="../BookingPage/booking.php?facility=LBC Forth  Floor">LBC Forth  Floor</a>
             </div>
           </div>
 
           <!--Indoor Halls-->
           <div class="cell"><p>Indoor courts</p>
             <div class="menu" id="indoor-halls">
-              <a href="../BookingPage/booking.html">Badminton Courts</a>
-              <a href="../BookingPage/booking.html">Martial Arts</a>
-              <a href="../BookingPage/booking.html">Table Tennis</a>
+              <a href="../BookingPage/booking.php?facility=Badminton Courts">Badminton Courts</a>
+              <a href="../BookingPage/booking.php?facility=Martial Arts">Martial Arts</a>
+              <a href="../BookingPage/booking.php?facility=Table Tennis">Table Tennis</a>
             </div>
           </div>
 
 
-          <div class="cell" onclick="openBook()">VolleyBall</div>
-          <div class="cell" onclick="openBook()">Astro Turf</div>
+          <a href="../BookingPage/booking.php?facility=VolleyBall" class="cell">VolleyBall</a>
+          <a href="../BookingPage/booking.php?facility=Astro Turf" class="cell" >Astro Turf</a>
+          <!-- <div class="cell" onclick="openBook()">Astro Turf</div> -->
 
           <!--Climbing Walls-->
           <div class="cell"><p>Car Park</p>
             <div class="menu" id="climbing-walls">
-              <a href="../BookingPage/booking.html">Administration Car Park</a>
-              <a href="../BookingPage/booking.html">Auditorium Car park</a>
+              <a href="../BookingPage/booking.php?facility=Administration Car Park">Administration Car Park</a>
+              <a href="../BookingPage/booking.php?facility=Auditorium Car park">Auditorium Car park</a>
           </div>
           </div>
         </div>
@@ -81,12 +88,31 @@ if(isset($_SESSION['uid'])){
           <div class="line-3"></div>
         </div>
         <ul class="nav-links">
-          <li><a href="#" class="nav-link">ABOUT</a></li>
-          <li><a href="#" class="nav-link">FACILITIES</a></li>
+
+        <?php
+  if(isset($_SESSION['uid'])){
+    ?>
+
+<li><a href="../StudentLogin/Mybookings.php" class="nav-link">MY BOOKINGS</a></li>
+          <li><a href="../SelectFacility/selectfacility.php" class="nav-link">FACILITIES</a></li>
           <li><a href="#" class="nav-link">CONTACTS</a></li>
           <li><a href="#" class="nav-link">ADMISSIONS</a></li>
           <li><a href="#" class="nav-link">MEDIA</a></li>
-          <li><a href="#" class="nav-link">ALUMNI</a></li>
+          <li><a href="../config/action.php?logout" class="nav-link">LOGOUT</a></li>
+    <?php
+  }else{
+    ?>
+
+<!-- <li><a href="../StudentLogin/Mybookings.php" class="nav-link">MY BOOKINGS</a></li> -->
+          <!-- <li><a href="../SelectFacility/selectfacility.php" class="nav-link">FACILITIES</a></li> -->
+          <li><a href="#" class="nav-link">CONTACTS</a></li>
+          <li><a href="#" class="nav-link">ADMISSIONS</a></li>
+          <li><a href="#" class="nav-link">MEDIA</a></li>
+          <!-- <li><a href="../config/action.php?logout" class="nav-link">LOGOUT</a></li> -->
+    <?php
+  }
+        ?>
+
         </ul>
         
       </nav>

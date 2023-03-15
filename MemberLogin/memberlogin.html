@@ -22,14 +22,14 @@
               <p id="signin">Sign In</p>
 
               <!--Login Form-->
-              <form onsubmit="toSel()" action="../SelectFacility/selectfacility.html">
+              <form  method="post" action="../config/action.php">
                 <label for="fname">Administration Id</label>
-                <input type="text" id="stuid" name="studentid" placeholder="Administration id">
+                <input type="text" id="stuid" name="student_id" placeholder="Administration id">
             
                 <label for="lname">Password</label>
                 <input type="text" id="pass" name="password" placeholder="Password">
               
-                <input id="sub" type="submit" value="LOG IN"></input>
+                <input id="sub" type="submit" name="btn_loginStudent" value="LOG IN"></input>
               </form>
             </div>
           </div>
@@ -42,6 +42,7 @@
             <div class="line-2"></div>
             <div class="line-3"></div>
           </div>
+          
           <ul class="nav-links">
             <li><a href="#" class="nav-link">ABOUT</a></li>
             <li><a href="#" class="nav-link">FACILITIES</a></li>

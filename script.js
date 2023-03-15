@@ -12,7 +12,7 @@ navSlide();
 
 
 function studentLogin() {
-    location.href = "StudentLogin/studentlogin.html";
+    location.href = "StudentLogin/studentlogin.php";
 }
 
 function memberLogin() {

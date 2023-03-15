@@ -1,0 +1,74 @@
+*{
+    margin: 0; padding: 0;box-sizing: border-box;
+}
+body{
+    height: 100vh;
+}
+.wrapper{
+    display: grid;
+    grid-template-columns: 15% 85%;
+height: 100vh;
+overflow: hidden;
+}
+
+.leftside{
+    background: rgb(0, 63, 99);
+    padding-top: 5rem;
+    /* padding-left: 5rem; */
+}
+ul li{
+    margin: 10px ;
+    list-style: none;
+padding: 10px 0px;
+}
+.leftside a{
+    color: inherit;
+    color: white;
+    list-style: none;
+    text-decoration: none;
+    padding-left: 5rem;
+    
+
+}
+.leftside li:hover{
+    background: rgb(0, 92, 145);
+    border-radius: 4pc;
+}
+.rightside{
+    height: 100vh;
+    background: white;
+    overflow-y: scroll;
+}
+.rightside .boxContainer{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 1rem;
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 1rem;
+    
+}
+.rightside .boxContainer .box{
+  box-shadow: 1px 1px 16px rgb(0, 0, 0,0.2);
+  padding: 1rem;
+}
+.rightside .bookingContainer{
+    width: 90%;
+    margin: 0 auto;
+}
+.fas{
+    padding-right: 5px;
+    cursor: pointer;
+}
+.fa-eye{
+    color: rgb(33, 99, 82);
+}
+.fa-trash{
+    color: rgb(255, 132, 132);
+}
+
+/* Booking detailed */
+.rightside .grid{
+    display: flex;
+    gap: 50px;
+}

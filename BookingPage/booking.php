@@ -1,3 +1,17 @@
+
+<?php
+include '../config/db.php';
+session_start();
+
+if(isset($_SESSION['uid'])){
+  $uid = $_SESSION['uid'];
+}
+
+if(isset($_GET['facility'])){
+  $facility = $_GET['facility'];
+
+}
+?>
 <!DOCTYPE html>
 
 <html lang="en">
@@ -35,20 +49,29 @@
                       <div id="title">1</div>
                       <div id="subtitle">General Information</div>
                     </div>
-
+                    
+<div class="row">
+ <div class="col-50">
+  <div class="flname" id="fl-first">
+    <label for="facility">Selected Facility</label>
+    <input type="text" name="facility" value="<?= $facility; ?>" id="facility" readonly>
+    <input type="hidden" name="uid" value="<?= $uid; ?>" id="" readonly>
+  </div>
+ </div>
+</div>
                     <div class="row">
                       <div class="col-50">
 
                         <div class="flname" id="fl-first">
                           <label for="state">First Name</label>
-                          <input type="text" name="firstname" id="state" name="state">
+                          <input type="text" name="firstname" id="state">
                         </div>
                       </div>
 
                       <div class="col-50">
                         <div class="flname" id="fl-last">
                           <label for="zip">Last Name</label>
-                          <input type="text" name="lastname" id="zip" name="zip">
+                          <input type="text" name="lastname" id="zip">
                         </div>
                       </div>
                     </div>
@@ -123,7 +146,9 @@
 
                     <!-- Calendar -->
               <div class="movie-container">
-                <ul class="showcase">
+
+              <h3>Select your event last period</h3>
+                <!-- <ul class="showcase">
                   <li>
                     <div class="seat"></div>
                     <small>Available</small>
@@ -136,10 +161,10 @@
                     <div class="seat occupied"></div>
                     <small>Unavailable</small>
                   </li>    
-                </ul>
+                </ul> -->
                 
    <div class="cal-container">
-    <div class="month">
+    <!-- <div class="month">
       <select id="month-selector">
         <option value="January">January</option>
         <option value="February">February</option>
@@ -230,7 +255,30 @@
                       <div class="seat occupied">3:00pm</div>
                       <div class="seat occupied">3:00pm</div>
                       <div class="seat">3:00pm</div>
+                    </div> -->
+
+                    <!-- <div>
+                      <label for="fromDate">From</label>
+                      <div class="fromDate">
+                        <input type="datetime" name="fromDate" id="fromDate">
+                      </div>
+                    </div> -->
+                    <div class="row">
+                      <div class="col-50">
+                        <div class="date" id="">
+                          <label for="fromDate">From</label>
+                          <input type="date" id="fromDate" name="fromDate">
+                        </div>
+                        
+                      </div>
+                      <div class="col-50">
+                        <div class="date" id="">
+                          <label for="toDate">To</label>
+                          <input type="date" id="toDate" name="toDate" >
+                        </div>
+                      </div>
                     </div>
+
                 </div>
               </div>
 
