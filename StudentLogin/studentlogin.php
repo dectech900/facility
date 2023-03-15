@@ -54,7 +54,7 @@
             <li><a href="#" class="nav-link">CONTACTS</a></li>
             <li><a href="#" class="nav-link">ADMISSIONS</a></li>
             <li><a href="#" class="nav-link">MEDIA</a></li>
-            <li><a href="../config/action.php?logout" class="nav-link">LOGOUT</a></li>
+            <!-- <li><a href="../config/action.php?logout" class="nav-link">LOGOUT</a></li> -->
 
           </ul>
         </nav>

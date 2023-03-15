@@ -46,7 +46,7 @@ if(isset($_GET['del'])){
         <nav>
           <ul>
             <li><a href="index.php">Home</a></li>
-            <li><a href="../config/action.php?logout">Logout</a></li>
+            <li><a href="../config/action.php?logout-admin">Logout</a></li>
             <li><a href=""></a></li>
             <li><a href=""></a></li>
 

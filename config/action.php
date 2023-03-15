@@ -50,7 +50,7 @@ if(isset($_POST['btn_loginStudent'])){
         // die();
     }else{
         $_SESSION['error'] = "Oops Invalid login credentials.. Please try again";
-        header("Location: ../StudentLogin/studentlogin.html?failed");
+        header("Location: ../StudentLogin/studentlogin.php?failed");
     }
 }
 
@@ -110,6 +110,16 @@ if(isset($_GET['logout'])){
     $_SESSION['fname'] = "";
     session_destroy();
     session_unset();
-    header("Location: ../StudentLogin/studentlogin.html");
+    header("Location: ../SStudentLogin/studentlogin.php");
+}
+// Logout Admin
+if(isset($_GET['logout-admin'])){
+    session_start();
+    $_SESSION['uid'] = "";
+    $_SESSION['user_type'] = "";
+    $_SESSION['fname'] = "";
+    session_destroy();
+    session_unset();
+    header("Location: ../MemberLogin/memberlogin.html");
 }
 

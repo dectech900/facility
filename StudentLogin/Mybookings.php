@@ -5,6 +5,9 @@ if(isset($_SESSION['uid'])){
   $userType =  $_SESSION['user_type'];
   $userName =  $_SESSION['fname'];
    $uid = $_SESSION['uid'];
+}else{
+  header("Location: ../StudentLogin/studentlogin.php?error=login first");
+
 }
 
 $bookingSql = "SELECT * FROM bookings WHERE `uid` = '$uid'";
@@ -49,7 +52,17 @@ $query = mysqli_query($conn, $bookingSql);
           <li><a href="#" class="nav-link">CONTACTS</a></li>
           <li><a href="#" class="nav-link">ADMISSIONS</a></li>
           <li><a href="#" class="nav-link">MEDIA</a></li>
-          <li><a href="../config/action.php?logout" class="nav-link">LOGOUT</a></li>
+          <?php 
+          if($uid){
+            ?>
+ <li><a href="../config/action.php?logout" class="nav-link">LOGOUT</a></li>
+            <?php
+          }else{
+            echo '';
+          }
+          
+          ?>
+         
 
         </ul>
         
