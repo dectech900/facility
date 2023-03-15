@@ -12,22 +12,13 @@ if(isset($_SESSION['uid'])){
 
 
 
-$bookingSql = "SELECT * FROM bookings ORDER BY created_at";
-$queryBookings = mysqli_query($conn, $bookingSql);
-$bookingCount = mysqli_num_rows($queryBookings);
-
-$users = "SELECT * FROM users WHERE user_type = 'STUDENT' ORDER BY created_at";
-$queryUser = mysqli_query($conn, $users);
-$usersCount = mysqli_num_rows($queryUser);
-
-$usersGuest = "SELECT * FROM users WHERE user_type = 'GUEST' ORDER BY created_at";
-$queryUserGuest = mysqli_query($conn, $usersGuest);
-$usersCountGuest = mysqli_num_rows($queryUserGuest);
+$usersBooking = "SELECT * FROM users WHERE user_type = 'STUDENT' ORDER BY created_at";
+$query = mysqli_query($conn, $usersBooking);
 
 //delete
 if(isset($_GET['del'])){
   $del_id = $_GET['del'];
-  $delSql = "DELETE FROM bookings WHERE id = '$del_id'";
+  $delSql = "DELETE FROM users WHERE id = '$del_id'";
   $delQuery =  mysqli_query($conn, $delSql);
   if($delQuery){
     header('Location: index.php?message=Deleted successfully');
@@ -35,7 +26,6 @@ if(isset($_GET['del'])){
 }
 
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -60,18 +50,19 @@ if(isset($_GET['del'])){
             <li><a href="../config/action.php?logout-admin">Logout</a></li>
             <li><a href=""></a></li>
             <li><a href=""></a></li>
+
           </ul>
         </nav>
       </div>
       <div class="rightside">
-          <div class="boxContainer">
+          <!-- <div class="boxContainer">
               <div class="box">
                   <div class="icon">
                     <img src="" alt="">
                   </div>
                   <div class="info">
                     <h3>Total Guest</h3>
-                    <h1><?= $usersCountGuest; ?></h1>
+                    <h1>1</h1>
                   </div>
               </div>
               <div class="box">
@@ -80,7 +71,7 @@ if(isset($_GET['del'])){
                   </div>
                   <div class="info">
                     <h3>Total Bookings</h3>
-                    <h1><?= $bookingCount; ?></h1>
+                    <h1>1</h1>
                   </div>
               </div>
               <div class="box">
@@ -92,14 +83,14 @@ if(isset($_GET['del'])){
                     <h1>1</h1>
                   </div>
               </div>
-          </div>
+          </div> -->
 
 
           <div class="bookingContainer">
               <div class="px-4 py-8 sm:px-0">
                   
                   <div class="flex flex-col">
-                    <h1 class="py-3" style="font-size: 1.7rem;">Bookings</h1>
+                    <h1 class="py-3" style="font-size: 1.7rem;">Students</h1>
                   <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                     <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
                       <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
@@ -117,7 +108,7 @@ if(isset($_GET['del'])){
                                 scope="col"
                                 class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                               >
-                                Facility
+                                Name
                               </th>
                               <th
                                 scope="col"
@@ -129,13 +120,13 @@ if(isset($_GET['del'])){
                                 scope="col"
                                 class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                               >
-                              No. Attendees
+                              Phone
                               </th>
                               <th
                                 scope="col"
                                 class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                               >
-                                Booked period
+                                Student
                               </th>
                               <th scope="col" class="relative px-6 py-3">
                                 <span class="text-gray-500 font-medium">Booked On</span>
@@ -144,28 +135,28 @@ if(isset($_GET['del'])){
                                 scope="col"
                                 class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                               >
-                                Action
+                                Created At
                               </th>
                             </tr>
                           </thead>
                           <tbody class="bg-white divide-y divide-gray-200">
-                          <?php while($data = mysqli_fetch_assoc($queryBookings)): ?>
+                          <?php while($data = mysqli_fetch_assoc($query)): ?>
                                 <tr>
                                  
                                   <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
                                  
                                   </td>
                                   <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                     <?= $data['facility']; ?>
+                                     <?= $data['name']; ?>
                                   </td>
                                   <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                                   <?= $data['email']; ?>
                                   </td>
                                   <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                  <?= $data['booking_attendees']; ?>
+                                  <?= $data['phone']; ?>
                                   </td>
                                   <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                  <?= $data['booking_time']; ?>
+                                  <?= $data['student_id']; ?>
                                   </td>
                                   <td class="px-6 py-4 whitespace-nowrap text-right text-sm ext-gray-500">
                                   <?= $data['created_at']; ?>
@@ -181,9 +172,9 @@ if(isset($_GET['del'])){
                                   
                                 
                                <td class="px-6 py-4">
-                                 <a  href="bookingDetailed.php?edit=<?= $data['id'] ?>" class="fas fa-eye"></a>
+                                 <!-- <a  href="bookingDetailed.php?edit=<?// $data['id'] ?>" class="fas fa-eye"></a> -->
                               
-                               <a href="index.php?del=<?= $data['id'] ?>" class="fas del fa-trash"></a>
+                               <a href="students.php?del=<?= $data['id'] ?>" class="fas del fa-trash"></a>
                                </td>
                                 </tr>
                          
