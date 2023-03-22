@@ -45,10 +45,11 @@ if(isset($_GET['del'])){
       <div class="leftside">
         <nav>
           <ul>
-            <li><a href="index.php">Home</a></li>
-            <li><a href="students.php">Students</a></li>
-            <li><a href="guest.php">Guest</a></li>
-            <li><a href="../config/action.php?logout-admin">Logout</a></li>
+          <li><a href="index.php"><i class="fas fa-home"></i> Home</a></li>
+<li><a href="students.php"><i class="fas fa-user-graduate"></i> Students</a></li>
+<li><a href="guest.php"><i class="fas fa-user"></i> Guest</a></li>
+<li><a href="../config/action.php?logout-admin"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+
             <li><a href=""></a></li>
             <li><a href=""></a></li>
 
@@ -91,7 +92,8 @@ if(isset($_GET['del'])){
               <div class="px-4 py-8 sm:px-0">
                   
                   <div class="flex flex-col">
-                    <h1 class="py-3" style="font-size: 1.7rem;">Guest</h1>
+                  <h1 class="py-3" style="font-size: 1.7rem;"><i class="fas fa-user"></i> Guest</h1>
+</body>
                   <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                     <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
                       <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
