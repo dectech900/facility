@@ -127,12 +127,7 @@ if(isset($_GET['del'])){
                               >
                                 Email
                               </th>
-                              <th
-                                scope="col"
-                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                              >
-                              No. Attendees
-                              </th>
+                            
                               <th
                                 scope="col"
                                 class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
@@ -163,22 +158,13 @@ if(isset($_GET['del'])){
                                   <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                                   <?= $data['email']; ?>
                                   </td>
-                                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                  <?= $data['booking_attendees']; ?>
-                                  </td>
+                                  
                                   <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                                   <?= $data['booking_time']; ?>
                                   </td>
                                   <td class="px-6 py-4 whitespace-nowrap text-right text-sm ext-gray-500">
                                   <?= $data['created_at']; ?>
-                                    <!-- <Link
-                                      to="/student"
-                                      class="text-indigo-600 hover:text-indigo-900"
-                                    >
-                                      <span></span>
-                  <span class="bg-warning text-white px-2 py-1 rounded-full">In-Progress</span>
-                                     
-                                    </Link> -->
+                               
                                   </td>
                                   
                                 
