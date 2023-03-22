@@ -100,8 +100,7 @@ if(isset($_GET['del'])){
               <div class="px-4 py-8 sm:px-0">
                   
                   <div class="flex flex-col">
-                  <h1 class="py-3" style="font-size: 1.7rem;"><i class="fas fa-book"></i> Bookings</h1>
-
+                    <h1 class="py-3" style="font-size: 1.7rem;">Bookings</h1>
                   <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                     <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
                       <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
