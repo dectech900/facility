@@ -28,63 +28,14 @@ if(isset($_GET['del'])){
 ?>
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <title>Document</title>
-    <link rel="stylesheet" href="admin.css" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" integrity="sha512-rqQltXRuHxtPWhktpAZxLHUVJ3Eombn3hvk9PHjV/N5DMUYnzKPC1i3ub0mEXgFzsaZNeJcoE0YHq0j/GFsdGg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
-  </head>
+<?php include 'includes/head.php' ?>
   <body>
     <div class="wrapper">
       <div class="leftside">
-        <nav>
-          <ul>
-          <li><a href="index.php"><i class="fas fa-home"></i> Home</a></li>
-<li><a href="students.php"><i class="fas fa-user-graduate"></i> Students</a></li>
-<li><a href="guest.php"><i class="fas fa-user"></i> Guest</a></li>
-<li><a href="../config/action.php?logout-admin"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
-
-            <li><a href=""></a></li>
-            <li><a href=""></a></li>
-
-          </ul>
-        </nav>
+       <?php include 'includes/sideNav.php' ?>
       </div>
       <div class="rightside">
-          <!-- <div class="boxContainer">
-              <div class="box">
-                  <div class="icon">
-                    <img src="" alt="">
-                  </div>
-                  <div class="info">
-                    <h3>Total Guest</h3>
-                    <h1>1</h1>
-                  </div>
-              </div>
-              <div class="box">
-                  <div class="icon">
-                    <img src="" alt="">
-                  </div>
-                  <div class="info">
-                    <h3>Total Bookings</h3>
-                    <h1>1</h1>
-                  </div>
-              </div>
-              <div class="box">
-                  <div class="icon">
-                    <img src="" alt="">
-                  </div>
-                  <div class="info">
-                    <h3>Total Students</h3>
-                    <h1>1</h1>
-                  </div>
-              </div>
-          </div> -->
+       
 
 
           <div class="bookingContainer">

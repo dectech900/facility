@@ -4,13 +4,24 @@ include '../config/db.php';
 session_start();
 
 if(isset($_SESSION['uid'])){
-  $uid = $_SESSION['uid'];
+ echo $uid = $_SESSION['uid'];
 }
 
 if(isset($_GET['facility'])){
   $facility = $_GET['facility'];
+  
 
 }
+$facilityPrice = 0;
+if($facility === 'LBC Auditorium'){
+$facilityPrice = 500;
+}else if($facility === 'Main Auditorium'){
+  $facilityPrice = 200;
+}else if($facility === 'Side Confrence Auditorium'){
+  $facilityPrice = 250;
+}
+
+
 ?>
 <!DOCTYPE html>
 
@@ -44,9 +55,9 @@ if(isset($_GET['facility'])){
                 <div class="row">
                   <div class="col-50">
                     <button class="button button5"></button>
-                    <p id="make-a">Make A Booking</p>
+                    <p id="make-a">Make A Booking </p>
                     <input type="text" name="facility" value="<?= $facility; ?>" id="facility" readonly>
-    <input type="hidden" name="uid" value="<?= $uid; ?>" id="" readonly>
+                        <input type="hidden" name="uid" value="<?= $uid; ?>" id="" readonly>
                     <div id="heading">
                       <div id="title">1</div>
                       <div id="subtitle">General Information</div>
@@ -88,9 +99,9 @@ if(isset($_GET['facility'])){
 
 
                     <label for="hostel-facility">CCTV Cameras</label>
-<input type="checkbox" id="hostel-facility" name="hostel-facility">
-<label for="hostel-facility">External peripheral </label>
-<input type="checkbox" id="hostel-facility" name="hostel-facility">
+                    <input type="checkbox" id="hostel-facility" name="hostel-facility">
+                    <label for="hostel-facility">External peripheral </label>
+                    <input type="checkbox" id="hostel-facility" name="hostel-facility">
 
 
                   </div>
@@ -101,6 +112,11 @@ if(isset($_GET['facility'])){
                       <div id="title">3</div>
                       <div id="subtitle">Booking Information</div>
                       
+                    </div>
+
+                    <div>
+                      <h3>&#8373;<?= $facilityPrice?></h3>
+                      <input type="hidden" name="facilityPrice" value="<?= $facilityPrice; ?>">
                     </div>
 
 
@@ -157,6 +173,7 @@ if(isset($_GET['facility'])){
                 <input type="checkbox" name="declare2" required /> By making a booking request, you are agreeing to follow the COVID protocols established by UPSA Facility. <br>
                 <input type="checkbox" name="declare3" required /> Please make sure that all the fields have been completed before moving forward. Thank you.
               </label>
+
 
               <div class="row">
                 <div class="col-50">

@@ -12,13 +12,22 @@ if(isset($_SESSION['uid'])){
 
 
 
-$usersBooking = "SELECT * FROM users WHERE user_type = 'GUEST' ORDER BY created_at";
-$query = mysqli_query($conn, $usersBooking);
+$bookingSql = "SELECT * FROM bookings ORDER BY created_at";
+$queryBookings = mysqli_query($conn, $bookingSql);
+$bookingCount = mysqli_num_rows($queryBookings);
+
+$users = "SELECT * FROM users WHERE user_type = 'STUDENT' ORDER BY created_at";
+$queryUser = mysqli_query($conn, $users);
+$usersCount = mysqli_num_rows($queryUser);
+
+$usersGuest = "SELECT * FROM users WHERE user_type = 'GUEST' ORDER BY created_at";
+$queryUserGuest = mysqli_query($conn, $usersGuest);
+$usersCountGuest = mysqli_num_rows($queryUserGuest);
 
 //delete
 if(isset($_GET['del'])){
   $del_id = $_GET['del'];
-  $delSql = "DELETE FROM users WHERE id = '$del_id'";
+  $delSql = "DELETE FROM bookings WHERE id = '$del_id'";
   $delQuery =  mysqli_query($conn, $delSql);
   if($delQuery){
     header('Location: index.php?message=Deleted successfully');
@@ -29,50 +38,20 @@ if(isset($_GET['del'])){
 
 <!DOCTYPE html>
 <html lang="en">
-<?php include 'includes/head.php' ?>
+<?php include_once 'includes/head.php' ?>
   <body>
     <div class="wrapper">
       <div class="leftside">
-      <?php include 'includes/sideNav.php'; ?>
+        <?php include 'includes/sideNav.php'; ?>
       </div>
       <div class="rightside">
-          <!-- <div class="boxContainer">
-              <div class="box">
-                  <div class="icon">
-                    <img src="" alt="">
-                  </div>
-                  <div class="info">
-                    <h3>Total Guest</h3>
-                    <h1>1</h1>
-                  </div>
-              </div>
-              <div class="box">
-                  <div class="icon">
-                    <img src="" alt="">
-                  </div>
-                  <div class="info">
-                    <h3>Total Bookings</h3>
-                    <h1>1</h1>
-                  </div>
-              </div>
-              <div class="box">
-                  <div class="icon">
-                    <img src="" alt="">
-                  </div>
-                  <div class="info">
-                    <h3>Total Students</h3>
-                    <h1>1</h1>
-                  </div>
-              </div>
-          </div> -->
-
-
+      
           <div class="bookingContainer">
               <div class="px-4 py-8 sm:px-0">
                   
                   <div class="flex flex-col">
-                  <h1 class="py-3" style="font-size: 1.7rem;"><i class="fas fa-user"></i> Guest</h1>
-</body>
+                  <h1 class="py-3" style="font-size: 1.7rem;"><i class="fas fa-book"></i> Bookings</h1>
+
                   <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                     <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
                       <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
@@ -90,7 +69,7 @@ if(isset($_GET['del'])){
                                 scope="col"
                                 class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                               >
-                                Name
+                                Facility
                               </th>
                               <th
                                 scope="col"
@@ -98,69 +77,95 @@ if(isset($_GET['del'])){
                               >
                                 Email
                               </th>
+                            
                               <th
                                 scope="col"
                                 class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                               >
-                              Phone
+                                Booked Start
                               </th>
                               <th
                                 scope="col"
                                 class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                               >
-                                Guest ID
+                                Booked End
                               </th>
-                              <th scope="col" class="relative px-6 py-3">
-                                <span class="text-gray-500 font-medium">Booked On</span>
+                              <th
+                                scope="col"
+                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                              >
+                                Number of Date
                               </th>
+                              <th
+                                scope="col"
+                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                              >
+                                Facility Price
+                              </th>
+                              <th
+                                scope="col"
+                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                              >
+                                Total Price
+                              </th>
+                              <th
+                                scope="col"
+                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                              >
+                                Booked on
+                              </th>
+                            
                                 <th
                                 scope="col"
                                 class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                               >
-                                Created at
+                                Action
                               </th>
                             </tr>
                           </thead>
                           <tbody class="bg-white divide-y divide-gray-200">
-                          <?php while($data = mysqli_fetch_assoc($query)): ?>
+                          <?php while($data = mysqli_fetch_assoc($queryBookings)): ?>
                                 <tr>
                                  
                                   <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
                                  
                                   </td>
                                   <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                     <?= $data['name']; ?>
+                                     <?= $data['facility']; ?>
                                   </td>
                                   <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                                   <?= $data['email']; ?>
                                   </td>
+                                  
                                   <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                  <?= $data['phone']; ?>
+                                  <?= $data['start_date']; ?>
                                   </td>
                                   <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                  <?= $data['student_id']; ?>
+                                  <?= $data['end_date']; ?>
+                                  </td>
+                                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                  <?= $data['number_of_days']; ?>
+                                  </td>
+                                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                  <?= $data['facilityPrice']; ?>
+                                  </td>
+                                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                  <?= $data['total_price']; ?>
                                   </td>
                                   <td class="px-6 py-4 whitespace-nowrap text-right text-sm ext-gray-500">
                                   <?= $data['created_at']; ?>
-                                    <!-- <Link
-                                      to="/student"
-                                      class="text-indigo-600 hover:text-indigo-900"
-                                    >
-                                      <span></span>
-                  <span class="bg-warning text-white px-2 py-1 rounded-full">In-Progress</span>
-                                     
-                                    </Link> -->
+                               
                                   </td>
                                   
                                 
                                <td class="px-6 py-4">
-                                 <!-- <a  href="bookingDetailed.php?edit=<?// $data['id'] ?>" class="fas fa-eye"></a> -->
+                                 <a  href="bookingDetailed.php?edit=<?= $data['id'] ?>" class="fas fa-eye"></a>
                               
-                               <a href="students.php?del=<?= $data['id'] ?>" class="fas del fa-trash"></a>
+                               <a href="index.php?del=<?= $data['id'] ?>" class="fas del fa-trash"></a>
                                </td>
                                 </tr>
                          
-        <?php endwhile; ?>
+                                  <?php endwhile; ?>
                         
                           </tbody>
                         </table>
@@ -233,5 +238,7 @@ if(isset($_GET['del'])){
 </script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+
   </body>
 </html>
