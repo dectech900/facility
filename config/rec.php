@@ -133,6 +133,76 @@ if(isset($_POST['handleBookingSubmit'])){
     $query = mysqli_query($conn, $bookingSql);
     $data = mysqli_fetch_assoc($query);
 
+    // $startDate = strtotime("14/04/2023"); // Convert the start date string to a Unix timestamp
+    //     $endDate = strtotime("24/04/2023"); // Convert the end date string to a Unix timestamp
+    //     $selectedDate = strtotime("25/04/2023"); // Convert the selected date string to a Unix timestamp
+
+// Check if the selected date is within the allowed range
+// if ($selectedDate >= $startDate && $selectedDate <= $endDate) {
+//     // The selected date is within the allowed range, do whatever you need to do with it
+//     echo "You selected: date taken" . $selectedDate;
+// } else {
+//     // The selected date is not within the allowed range, skip to the next available date
+//     $nextAvailableDate = strtotime("+1 day", $endDate); // Calculate the next day after the end date
+//     echo "Sorry, that date is not available. The next available date is: " . date("d/m/Y", $nextAvailableDate);
+// }
+
+$datesArr= [];
+
+// while($data = mysqli_fetch_assoc($query)){
+    
+//    echo $startDate = explode(" ", $data['booking_time'])[0];
+//    echo $endDate = explode(" ", $data['booking_time'])[1];
+//     // array_push($datesArr, $datesFromDB);
+
+//     if ($fromDate >= $startDate && $fromDate <= $endDate) {
+//         // The selected date is within the allowed range, do whatever you need to do with it
+//         echo "You selected: date taken" ;
+//     } 
+// }
+
+while($data = mysqli_fetch_assoc($query)){
+    
+    $booking_time = $data['booking_time'];
+
+    // echo $booking_time;
+
+        // extract the start and end dates from the booking_time value
+    //    echo $startDate = explode(" ", $booking_time)[0].'<br/>';
+       echo $endDate = explode(" ", $booking_time)[1].'<br/>';
+
+  
+        // check if the selected date falls within the allowed range
+        // if (strtotime($fromDate) >= strtotime($startDate) && strtotime($toDate) <= strtotime($endDate)) {
+        //     echo "You selected a date that is already taken.";
+        //     break;
+        // }
+    // }
+}
+
+
+// echo $fromDate;
+// var_dump($datesArr);
+// echo "";
+// if (in_array($fromDate, $datesArr)) {
+//     echo "The date 2023-04-16 is in the array";
+// } else {
+//     echo "The date 2023-04-16 is not in the array";
+// }
+// print_r($datesArr);
+    // foreach ($data as $value) {
+    //     // code to execute during each iteration
+    //     if ($fromDate >= $data['booking_time'] && $fromDate <= $endDate) {
+    //         // The selected date is within the allowed range, do whatever you need to do with it
+    //         echo "You selected: date taken" . $selectedDate;
+    //     } else {
+    //         // The selected date is not within the allowed range, skip to the next available date
+    //         $nextAvailableDate = strtotime("+1 day", $endDate); // Calculate the next day after the end date
+    //         echo "Sorry, that date is not available. The next available date is: " . date("d/m/Y", $nextAvailableDate);
+    //     }
+    // }
+
+  
 
 // echo $totalDays;
  $totalPrice = number_format(intval($totalDays * $facilityPrice), 2, '.', ',');

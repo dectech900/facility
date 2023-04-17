@@ -38,31 +38,11 @@ if(isset($_GET['del'])){
 
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <title>Document</title>
-    <link rel="stylesheet" href="admin.css" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" integrity="sha512-rqQltXRuHxtPWhktpAZxLHUVJ3Eombn3hvk9PHjV/N5DMUYnzKPC1i3ub0mEXgFzsaZNeJcoE0YHq0j/GFsdGg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
-  </head>
+<?php include_once 'includes/head.php' ?>
   <body>
     <div class="wrapper">
       <div class="leftside">
-        <nav>
-          <ul>
-          <li><a href="index.php"><i class="fas fa-home"></i> Home</a></li>
-<li><a href="students.php"><i class="fas fa-user-graduate"></i> Students</a></li>
-<li><a href="guest.php"><i class="fas fa-user"></i> Guest</a></li>
-<li><a href="../config/action.php?logout-admin"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
-
-            <li><a href=""></a></li>
-            <li><a href=""></a></li>
-          </ul>
-        </nav>
+        <?php include 'includes/sideNav.php'; ?>
       </div>
       <div class="rightside">
           <div class="boxContainer">
@@ -132,11 +112,41 @@ if(isset($_GET['del'])){
                                 scope="col"
                                 class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                               >
-                                Booked period
+                                Booked Start date
                               </th>
-                              <th scope="col" class="relative px-6 py-3">
-                                <span class="text-gray-500 font-medium">Booked On</span>
+                              <th
+                                scope="col"
+                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                              >
+                                Booked End date
                               </th>
+                              <th
+                                scope="col"
+                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                              >
+                                Number of Date
+                              </th>
+                              <th
+                                scope="col"
+                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                              >
+                                Facility Price
+                              </th>
+                              <th
+                                scope="col"
+                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                              >
+                                Total Price
+                              </th>
+                             
+                              <th
+                                scope="col"
+                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                              >
+                                Booked on
+                              </th>
+                             
+                              
                                 <th
                                 scope="col"
                                 class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
@@ -160,7 +170,20 @@ if(isset($_GET['del'])){
                                   </td>
                                   
                                   <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                  <?= $data['booking_time']; ?>
+                                  <?= $data['start_date']; ?>
+                                  </td>
+                                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                  <?= $data['end_date']; ?>
+                                  </td>
+                                  </td>
+                                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                  <?= $data['number_of_days']; ?>
+                                  </td>
+                                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                  <?= $data['facilityPrice']; ?>
+                                  </td>
+                                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                  <?= $data['total_price']; ?>
                                   </td>
                                   <td class="px-6 py-4 whitespace-nowrap text-right text-sm ext-gray-500">
                                   <?= $data['created_at']; ?>
@@ -248,5 +271,7 @@ if(isset($_GET['del'])){
 </script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+
   </body>
 </html>
