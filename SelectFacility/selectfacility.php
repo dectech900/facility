@@ -64,8 +64,8 @@ if(isset($_SESSION['uid'])){
           </div>
 
 
-          <a href="../BookingPage/booking.php?facility=VolleyBall" class="cell">VolleyBall</a>
-          <a href="../BookingPage/booking.php?facility=Astro Turf" class="cell" >Astro Turf</a>
+          <a href="../BookingPage/booking.php?facility=VolleyBall" class="cell" style=" text-decoration: none;">VolleyBall</a>
+          <a href="../BookingPage/booking.php?facility=Astro Turf" class="cell"  style=" text-decoration: none;" >Astro Turf</a>
           <!-- <div class="cell" onclick="openBook()">Astro Turf</div> -->
 
           <!--Climbing Walls-->

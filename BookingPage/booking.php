@@ -27,6 +27,9 @@ else if($facility === 'LBC Ground Floor'){
 else if($facility === 'LBC Second Floor'){
   $facilityPrice = 550; 
 }
+else if($facility === 'Astro Turf'){
+  $facilityPrice = 800; 
+}
 
 
 

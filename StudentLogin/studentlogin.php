@@ -13,6 +13,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
         </head>
     <body>
 
@@ -64,13 +65,15 @@
             <div class="line-3"></div>
           </div>
           <ul class="nav-links">
-          <li><a href="../StudentLogin/Mybookings.php" class="nav-link">MY BOOKINGS</a></li>
+          <li><a href="../StudentLogin/Mybookings.php" class="nav-link">MY BOOKINGS <span class="material-symbols-outlined"> calendar_month </span></a></li>
 
-          <li><a href="../SelectFacility/selectfacility.php" class="nav-link">FACILITIES</a></li>
+          <li><a href="../SelectFacility/selectfacility.php" class="nav-link">FACILITIES <span class="material-symbols-outlined">
+home_work
+</span></a></li>
 
-            <li><a href="#" class="nav-link">CONTACTS</a></li>
-            <li><a href="#" class="nav-link">ADMISSIONS</a></li>
-            <li><a href="#" class="nav-link">MEDIA</a></li>
+          <li><a href="#" class="nav-link">CONTACTS <i class="material-icons">phone</i></a></li>
+          <li><a href="#" class="nav-link">ADMISSIONS <i class="material-icons">school</i></a></li>
+            <li><a href="#" class="nav-link">MEDIA <i class="material-icons">movie</i></a></li>
             <!-- <li><a href="../config/action.php?logout" class="nav-link">LOGOUT</a></li> -->
 
           </ul>

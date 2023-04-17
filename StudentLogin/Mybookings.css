@@ -59,7 +59,7 @@
       padding-top: 0.8rem;
   }
   
-  form input[type=text], select {
+  form input[type=text],input[type=password], select {
       width: 16rem;
       padding: 12px 20px;
       margin: 8px 0;
