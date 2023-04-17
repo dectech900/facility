@@ -45,7 +45,7 @@
                 <input type="text" id="stuid" name="student_id" placeholder="Student ID">
             
                 <label for="lname">Password</label>
-                <input type="text" id="pass" name="password" placeholder="Password">
+                <input type="password" id="pass" name="password" placeholder="Password">
                 <input type="hidden" id="" name="user_type" value="STUDENT"/>
               
                 <input id="sub2" name="btn_loginStudent" type="submit" value="LOG IN"></input>

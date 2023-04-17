@@ -55,9 +55,12 @@ $fpdf->SetFont('Arial','B',11);
 // /*Heading Of the table*/ CREATING TABLE HEADING
 // $fpdf->Cell(10 ,10,'#',1,0,'C');
 $fpdf->Cell(100 ,10,'Facility: '.$data['facility'],1,1,'C');
-$fpdf->Cell(100 ,10,'Booking Date: '.$data['booking_time'],1,1,'C');
-$fpdf->Cell(100 ,10,'Booking Attendee: '.$data['booking_attendees'],1,1,'C');
-$fpdf->Cell(100 ,10,'Booking Court: '.$data['booking_court'],1,1,'C');
+$fpdf->Cell(100 ,10,'Booking Start Date: '.$data['start_date'],1,1,'C');
+$fpdf->Cell(100 ,10,'Booking End Date: '.$data['end_date'],1,1,'C');
+$fpdf->Cell(100 ,10,'Number of Days: '.$data['number_of_days'],1,1,'C');
+$fpdf->Cell(100 ,10,'Facility Price: '.$data['facilityPrice'],1,1,'C');
+$fpdf->Cell(100 ,10,'Total Price: '.$data['total_price'],1,1,'C');
+
 // $fpdf->Cell(80 ,10,'Facility: '.$data['facility'],1,1,'C');
 // $fpdf->Cell(80 ,10,'Facility: '.$data['facility'],1,1,'C');
 
