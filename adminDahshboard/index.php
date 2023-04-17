@@ -38,36 +38,17 @@ if(isset($_GET['del'])){
 
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <title>Document</title>
-    <link rel="stylesheet" href="admin.css" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" integrity="sha512-rqQltXRuHxtPWhktpAZxLHUVJ3Eombn3hvk9PHjV/N5DMUYnzKPC1i3ub0mEXgFzsaZNeJcoE0YHq0j/GFsdGg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
-  </head>
+<?php include_once 'includes/head.php' ?>
   <body>
     <div class="wrapper">
       <div class="leftside">
-        <nav>
-          <ul>
-            <li><a href="index.php">Home</a></li>
-            <li><a href="students.php">Students</a></li>
-            <li><a href="guest.php">Guest</a></li>
-            <li><a href="../config/action.php?logout-admin">Logout</a></li>
-            <li><a href=""></a></li>
-            <li><a href=""></a></li>
-          </ul>
-        </nav>
+        <?php include 'includes/sideNav.php'; ?>
       </div>
       <div class="rightside">
           <div class="boxContainer">
               <div class="box">
                   <div class="icon">
-                    <img src="" alt="">
+                  <i class="fas fa-users"></i>
                   </div>
                   <div class="info">
                     <h3>Total Guest</h3>
@@ -76,7 +57,7 @@ if(isset($_GET['del'])){
               </div>
               <div class="box">
                   <div class="icon">
-                    <img src="" alt="">
+                  <i class="fas fa-calendar-check"></i>
                   </div>
                   <div class="info">
                     <h3>Total Bookings</h3>
@@ -85,7 +66,7 @@ if(isset($_GET['del'])){
               </div>
               <div class="box">
                   <div class="icon">
-                    <img src="" alt="">
+                  <i class="fas fa-user-graduate"></i>
                   </div>
                   <div class="info">
                     <h3>Total Students</h3>
@@ -99,7 +80,8 @@ if(isset($_GET['del'])){
               <div class="px-4 py-8 sm:px-0">
                   
                   <div class="flex flex-col">
-                    <h1 class="py-3" style="font-size: 1.7rem;">Bookings</h1>
+                  <h1 class="py-3" style="font-size: 1.7rem;"><i class="fas fa-book"></i> Bookings</h1>
+
                   <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                     <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
                       <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
@@ -125,21 +107,46 @@ if(isset($_GET['del'])){
                               >
                                 Email
                               </th>
+                            
                               <th
                                 scope="col"
                                 class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                               >
-                              No. Attendees
+                                Booked Start date
                               </th>
                               <th
                                 scope="col"
                                 class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                               >
-                                Booked period
+                                Booked End date
                               </th>
-                              <th scope="col" class="relative px-6 py-3">
-                                <span class="text-gray-500 font-medium">Booked On</span>
+                              <th
+                                scope="col"
+                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                              >
+                                Number of Date
                               </th>
+                              <th
+                                scope="col"
+                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                              >
+                                Facility Price
+                              </th>
+                              <th
+                                scope="col"
+                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                              >
+                                Total Price
+                              </th>
+                             
+                              <th
+                                scope="col"
+                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                              >
+                                Booked on
+                              </th>
+                             
+                              
                                 <th
                                 scope="col"
                                 class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
@@ -161,22 +168,26 @@ if(isset($_GET['del'])){
                                   <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                                   <?= $data['email']; ?>
                                   </td>
+                                  
                                   <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                  <?= $data['booking_attendees']; ?>
+                                  <?= $data['start_date']; ?>
                                   </td>
                                   <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                  <?= $data['booking_time']; ?>
+                                  <?= $data['end_date']; ?>
+                                  </td>
+                                  </td>
+                                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                  <?= $data['number_of_days']; ?>
+                                  </td>
+                                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                  <?= $data['facilityPrice']; ?>
+                                  </td>
+                                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                  <?= $data['total_price']; ?>
                                   </td>
                                   <td class="px-6 py-4 whitespace-nowrap text-right text-sm ext-gray-500">
                                   <?= $data['created_at']; ?>
-                                    <!-- <Link
-                                      to="/student"
-                                      class="text-indigo-600 hover:text-indigo-900"
-                                    >
-                                      <span></span>
-                  <span class="bg-warning text-white px-2 py-1 rounded-full">In-Progress</span>
-                                     
-                                    </Link> -->
+                               
                                   </td>
                                   
                                 
@@ -260,5 +271,7 @@ if(isset($_GET['del'])){
 </script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+
   </body>
 </html>

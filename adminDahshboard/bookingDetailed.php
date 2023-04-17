@@ -50,8 +50,8 @@ if(isset($_GET['del'])){
       <div class="leftside">
         <nav>
           <ul>
-            <li><a href="index.php">Home</a></li>
-            <li><a href="../config/action.php?logout">Logout</a></li>
+          <li><a href="index.php"><i class="fa fa-home"></i> Home</a></li>
+            <li><a href="../config/action.php?logout"><i class="fa fa-sign-out-alt"></i> Logout</a></li>
             <li><a href=""></a></li>
             <li><a href=""></a></li>
 

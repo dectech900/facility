@@ -72,9 +72,13 @@ $query = mysqli_query($conn, $bookingSql);
       <table>
         <tr>
           <th>Facility</th>
-          <th>Booking Date</th>
-          <th>Attendees</th>
-          <th>Booking Court</th>
+          <th>Start Date</th>
+          <th>End Date</th>
+          <th>Number of Days</th>
+          <th>Price</th>
+          <th>Total Price</th>
+          <th>Email</th>
+          <th>Phone</th>
           <th>Action</th>
         </tr>
         <?php while($booking = mysqli_fetch_assoc($query)): 
@@ -82,9 +86,13 @@ $query = mysqli_query($conn, $bookingSql);
            ?>
           <tr>
           <td><?= $booking['facility'] ?></td>
-          <td><?= $booking['booking_time'] ?></td>
-          <td><?= $booking['booking_attendees'] ?></td>
-          <td><?= $booking['booking_court'] ?></td>
+          <td><?= $booking['start_date'] ?></td>
+          <td><?= $booking['end_date'] ?></td>
+          <td><?= $booking['number_of_days'] ?></td>
+          <td>&#8373;<?= $booking['facilityPrice'] ?></td>
+          <td>&#8373;<?= $booking['total_price'] ?></td>
+          <td><?= $booking['email'] ?></td>
+          <td><?= $booking['phone'] ?></td>
           
           <td><a target="_blank"  href="../print.php?PrintBookReport=<?= $booking['id']; ?>">Print</a></td>
          
