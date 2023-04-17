@@ -111,31 +111,31 @@ if(isset($_GET['del'])){
                                 scope="col"
                                 class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                               >
-                                Booked Start date
+                              Start date
                               </th>
                               <th
                                 scope="col"
                                 class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                               >
-                                Booked End date
+                                 End date
                               </th>
                               <th
                                 scope="col"
                                 class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                               >
-                                Number of Date
+                                No. of Days
                               </th>
                               <th
                                 scope="col"
                                 class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                               >
-                                Facility Price
+                                 Price
                               </th>
                               <th
                                 scope="col"
                                 class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                               >
-                                Total Price
+                                Total 
                               </th>
                              
                               <th

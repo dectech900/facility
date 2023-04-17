@@ -19,7 +19,15 @@ $facilityPrice = 500;
   $facilityPrice = 200;
 }else if($facility === 'Side Confrence Auditorium'){
   $facilityPrice = 250;
+  
 }
+else if($facility === 'LBC Ground Floor'){
+  $facilityPrice = 550; 
+}
+else if($facility === 'LBC Second Floor'){
+  $facilityPrice = 550; 
+}
+
 
 
 ?>
