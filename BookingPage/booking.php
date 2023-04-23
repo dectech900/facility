@@ -148,10 +148,22 @@ else if($facility === 'Astro Turf'){
                     </div>
 
   
-                    <div id="error_message" style=" ">
-                 <p style="border: 2px dotted red; color: red; text-align:center; padding: 10px 0px; border-radius: 4pc; background:white; position:relative; top: 50px;"><?php echo $date_error; ?></p>
+                    <?php
+ if(isset($date_error)){
+  ?>
+  <div id="error_message" style=" ">
+   <p style="border: 2px dotted red; color: red; text-align:center; padding: 10px 0px; border-radius: 4pc; background:white; position:relative; top: 50px;"><?php echo $date_error; ?></p>
               </div>
-                  
+
+  <?php
+ }else{
+   echo '';
+ }
+                    ?>
+                    
+              
+
+         
                     
 
                     <!-- Calendar -->
@@ -238,7 +250,7 @@ else if($facility === 'Astro Turf'){
         setTimeout(() => {
           var error_message = document.getElementById("error_message");
           error_message.style.display = "none";
-        }, 4000);
+        }, 5000);
         </script>
           <script src="/script.js"></script>     
           <script src="booking.js"></script>   
