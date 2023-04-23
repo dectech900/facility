@@ -120,7 +120,7 @@ if(isset($_POST['handleBookingSubmit'])){
     $interval = $date1->diff($date2);
    echo $totalDays = $interval->days;
 
-    $bookingSql = "SELECT `start_date`, `end_date` FROM bookings";
+    $bookingSql = "SELECT `start_date`, `end_date` FROM bookings Where facility = '$facility'";
     $query = mysqli_query($conn, $bookingSql);
     // $data = mysqli_fetch_assoc($query);
 
@@ -151,7 +151,7 @@ if (($user_start_date <= $stored_end_date && $user_end_date >= $stored_start_dat
  $totalPrice = number_format(intval($totalDays * $facilityPrice), 2, '.', ',');
 
 
-die();
+// die();
 
      $sql = "INSERT INTO `bookings`(`firstname`, `lastname`, `email`, `phone`, `facility`, `uid`,  `start_date`, `end_date`, `declaration1`, `declaration2`, `declaration3`, `facilityPrice`,`number_of_days`, `total_price`)
       VALUES ('$firstname', '$lastname','$email','$phone','$facility','$uid', '$fromDate', '$toDate', '$declare1', '$declare2','$declare3', '$facilityPrice', '$totalDays','$totalPrice')";
