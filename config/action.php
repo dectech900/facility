@@ -120,30 +120,53 @@ if(isset($_POST['handleBookingSubmit'])){
     $interval = $date1->diff($date2);
    echo $totalDays = $interval->days;
 
-    $bookingSql = "SELECT `start_date`, `end_date` FROM bookings Where facility = '$facility'";
+    $bookingSql = "SELECT `start_date`, `end_date` FROM bookings";
     $query = mysqli_query($conn, $bookingSql);
+    $data = mysqli_fetch_assoc($query);
+    var_dump($data);
+    if(mysqli_num_rows($query) > 1){
+
+        while($data = mysqli_fetch_assoc($query)){
+
+            // Convert date strings to Unix timestamps
+      $stored_start_date = strtotime($data['start_date']);
+      $stored_end_date = strtotime($data['end_date']);
+      $user_start_date = strtotime($fromDate);
+      $user_end_date = strtotime($toDate);
+      
+      // Check for overlap
+      if (($user_start_date <= $stored_end_date && $user_end_date >= $stored_start_date) ||
+          ($stored_start_date <= $user_end_date && $stored_end_date >= $user_start_date)) {
+          // Show error message and prevent form submission
+          // upsa_facility/BookingPage/booking.php?facility=LBC%20Second%20Floor
+          header("Location: ../BookingPage/booking.php?facility=".$facility."&date_error=You can book within the selected date. Facility booked already chosse another date");
+          // echo "Selected date range overlaps with stored date range.";
+          exit;
+      }
+      
+      }
+    }else{
+        $data = mysqli_fetch_assoc($query);
+        // Convert date strings to Unix timestamps
+        $stored_start_date = strtotime($data['start_date']);
+        $stored_end_date = strtotime($data['end_date']);
+        $user_start_date = strtotime($fromDate);
+        $user_end_date = strtotime($toDate);
+        
+        // Check for overlap
+        if (($user_start_date <= $stored_end_date && $user_end_date >= $stored_start_date) ||
+            ($stored_start_date <= $user_end_date && $stored_end_date >= $user_start_date)) {
+            // Show error message and prevent form submission
+            // upsa_facility/BookingPage/booking.php?facility=LBC%20Second%20Floor
+            header("Location: ../BookingPage/booking.php?facility=".$facility."&date_error=You can book within the selected date. Facility booked already chosse another date");
+            // echo "Selected date range overlaps with stored date range.";
+            exit;
+        }
+    }
     // $data = mysqli_fetch_assoc($query);
 
 
 
-while($data = mysqli_fetch_assoc($query)){
-
-      // Convert date strings to Unix timestamps
-$stored_start_date = strtotime($data['start_date']);
-$stored_end_date = strtotime($data['end_date']);
-$user_start_date = strtotime($fromDate);
-$user_end_date = strtotime($toDate);
-
-// Check for overlap
-if (($user_start_date <= $stored_end_date && $user_end_date >= $stored_start_date) ||
-    ($stored_start_date <= $user_end_date && $stored_end_date >= $user_start_date)) {
-    // Show error message and prevent form submission
-    // upsa_facility/BookingPage/booking.php?facility=LBC%20Second%20Floor
-    header("Location: ../BookingPage/booking.php?facility=".$facility."&date_error=You can book within the selected date. Facility booked already chosse another date");
-    // echo "Selected date range overlaps with stored date range.";
-    // exit;
-}
-}
 
 
 
