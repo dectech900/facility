@@ -107,15 +107,6 @@ if(isset($_POST['handleBookingSubmit'])){
     $email = mysqli_real_escape_string($conn, $_POST['email']);
      $phone = mysqli_real_escape_string($conn, $_POST['phone']);
       $facilityPrice = mysqli_real_escape_string($conn, $_POST['facilityPrice']);
-    //   $ref_name = mysqli_real_escape_string($conn, $_POST['ref_name']);
-    //  $ref_relationship = mysqli_real_escape_string($conn, $_POST['ref_relationship']);
-    //  $ref_phone = mysqli_real_escape_string($conn, $_POST['ref_phone']);
-    //  $timeslot1 = mysqli_real_escape_string($conn, $_POST['timeslot1']);
-    //  $timeslot2 = mysqli_real_escape_string($conn, $_POST['timeslot2']);
-    //  $timeslot3 = mysqli_real_escape_string($conn, $_POST['timeslot3']);
-    //  $ref_phone = mysqli_real_escape_string($conn, $_POST['ref_phone']);
-    //  $number_of_attendees = mysqli_real_escape_string($conn, $_POST['number_of_attendees']);
-    //  $number_of_court = mysqli_real_escape_string($conn, $_POST['number_of_court']);
      $declare1 = mysqli_real_escape_string($conn, $_POST['declare1']);
      $declare2 = mysqli_real_escape_string($conn, $_POST['declare2']);
      $declare3 = mysqli_real_escape_string($conn, $_POST['declare3']);
@@ -127,18 +118,40 @@ if(isset($_POST['handleBookingSubmit'])){
     $date1 = new DateTime($fromDate);
     $date2 = new DateTime($toDate);
     $interval = $date1->diff($date2);
-    $totalDays = $interval->days;
+   echo $totalDays = $interval->days;
 
-    $bookingSql = "SELECT * FROM bookings";
+    $bookingSql = "SELECT `start_date`, `end_date` FROM bookings";
     $query = mysqli_query($conn, $bookingSql);
-    $data = mysqli_fetch_assoc($query);
+    // $data = mysqli_fetch_assoc($query);
+
+
+
+while($data = mysqli_fetch_assoc($query)){
+
+      // Convert date strings to Unix timestamps
+$stored_start_date = strtotime($data['start_date']);
+$stored_end_date = strtotime($data['end_date']);
+$user_start_date = strtotime($fromDate);
+$user_end_date = strtotime($toDate);
+
+// Check for overlap
+if (($user_start_date <= $stored_end_date && $user_end_date >= $stored_start_date) ||
+    ($stored_start_date <= $user_end_date && $stored_end_date >= $user_start_date)) {
+    // Show error message and prevent form submission
+    // upsa_facility/BookingPage/booking.php?facility=LBC%20Second%20Floor
+    header("Location: ../BookingPage/booking.php?facility=".$facility."&date_error=You can book within the selected date. Facility booked already chosse another date");
+    // echo "Selected date range overlaps with stored date range.";
+    // exit;
+}
+}
+
 
 
 // echo $totalDays;
  $totalPrice = number_format(intval($totalDays * $facilityPrice), 2, '.', ',');
 
-die();
 
+die();
 
      $sql = "INSERT INTO `bookings`(`firstname`, `lastname`, `email`, `phone`, `facility`, `uid`,  `start_date`, `end_date`, `declaration1`, `declaration2`, `declaration3`, `facilityPrice`,`number_of_days`, `total_price`)
       VALUES ('$firstname', '$lastname','$email','$phone','$facility','$uid', '$fromDate', '$toDate', '$declare1', '$declare2','$declare3', '$facilityPrice', '$totalDays','$totalPrice')";

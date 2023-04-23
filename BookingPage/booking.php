@@ -7,11 +7,18 @@ if(isset($_SESSION['uid'])){
  echo $uid = $_SESSION['uid'];
 }
 
+
+
+
 if(isset($_GET['facility'])){
   $facility = $_GET['facility'];
   
-
 }
+if(isset($_GET['date_error'])){
+  $date_error = $_GET['date_error'];
+  
+}
+
 $facilityPrice = 0;
 if($facility === 'LBC Auditorium'){
 $facilityPrice = 500;
@@ -128,6 +135,7 @@ else if($facility === 'Astro Turf'){
                     <div>
                       <h3>&#8373;<?= $facilityPrice?></h3>
                       <input type="hidden" name="facilityPrice" value="<?= $facilityPrice; ?>">
+                     
                     </div>
 
 
@@ -136,9 +144,14 @@ else if($facility === 'Astro Turf'){
               
                     <div id="heading" class="heading4">
                       <div id="title">4</div>
-                      <div id="subtitle">Select Timeslot</div>
+                      <div id="subtitle">Select Timeslot </div>
                     </div>
 
+  
+                    <div id="error_message" style=" ">
+                 <p style="border: 2px dotted red; color: red; text-align:center; padding: 10px 0px; border-radius: 4pc; background:white; position:relative; top: 50px;"><?php echo $date_error; ?></p>
+              </div>
+                  
                     
 
                     <!-- Calendar -->
@@ -221,6 +234,12 @@ else if($facility === 'Astro Turf'){
           </ul>
           
 
+          <script>
+        setTimeout(() => {
+          var error_message = document.getElementById("error_message");
+          error_message.style.display = "none";
+        }, 4000);
+        </script>
           <script src="/script.js"></script>     
           <script src="booking.js"></script>   
     </body>
