@@ -525,4 +525,24 @@ nav {
 .nav-links.active {
   transform: translateX(0);
 }
+.button5{
+  position: relative;
+  top: 85px;
+  left: -56px;
+}
+#make-a{
+  position: relative;
+  top: 13px;
+}
+.label-container{
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+
+}
+.date-container{
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+
+}
+
 }

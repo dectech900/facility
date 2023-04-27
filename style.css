@@ -1,9 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible&display=swap');
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     -webkit-tap-highlight-color: transparent;
     /* text-decoration: none; */
+    /* font-family: 'Tenor Sans', sans-serif;
+    font-family: 'Khula', sans-serif; */
+    font-family: 'Atkinson Hyperlegible', sans-serif;
 }
 
 body {
@@ -13,8 +17,9 @@ body {
     background-repeat: no-repeat; /* prevents the image from repeating */
     background-position: center; /* centers the image in the background */
     overflow-x: hidden;
-    font-family: 'Times New Roman', Times, serif;
+    /* font-family: 'Times New Roman', Times, serif; */
     /* text-decoration: none; */
+    font-family: 'Atkinson Hyperlegible', sans-serif;
 }
 
 #user {
@@ -134,7 +139,7 @@ nav {
 .nav-link:hover {
   color: #baa217;
   transition: 0.4s ease;
-  text-decoration: underline;
+  /* text-decoration: underline; */
   
 }
 

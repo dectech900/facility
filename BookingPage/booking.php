@@ -57,7 +57,7 @@ else if($facility === 'Astro Turf'){
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">   
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
-       
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />    
     <body>
 
         <!--Booking Page-->
@@ -116,10 +116,16 @@ else if($facility === 'Astro Turf'){
                     </div>
 
 
-                    <label for="hostel-facility">CCTV Cameras</label>
+                   <div class="label-container"> 
+                    <div class="label-one">
+                       <label for="hostel-facility">CCTV Cameras</label>
                     <input type="checkbox" id="hostel-facility" name="hostel-facility">
+                     </div>
+                  <div class="label-two">
                     <label for="hostel-facility">External peripheral </label>
                     <input type="checkbox" id="hostel-facility" name="hostel-facility">
+                  </div>
+                   </div>
 
 
                   </div>
@@ -168,19 +174,22 @@ else if($facility === 'Astro Turf'){
 
                     <!-- Calendar -->
               <div class="movie-container">
-              <div class="row">
-                      <div class="col-50">
+              <div class="row date-container">
+
+                
+                      <div class="col-50 date-one">
                         <div class="date" id="">
                           <label for="fromDate">From</label>
                           <input type="date" id="fromDate" name="fromDate">
                         </div>
                         
                       </div>
-                      <div class="col-50">
+                      <div class="col-50 date-two">
                         <div class="date" id="">
                           <label for="toDate">To</label>
                           <input type="date" id="toDate" name="toDate" >
                         </div>
+               <!-- </div> -->
                 
    <div class="cal-container">
 
@@ -237,12 +246,15 @@ else if($facility === 'Astro Turf'){
             <div class="line-3"></div>
           </div>
           <ul class="nav-links">
-            <li><a href="#" class="nav-link">ABOUT</a></li>
-            <li><a href="#" class="nav-link">FACILITIES</a></li>
-            <li><a href="#" class="nav-link">CONTACTS</a></li>
-            <li><a href="#" class="nav-link">ADMISSIONS</a></li>
-            <li><a href="#" class="nav-link">MEDIA</a></li>
-            <li><a href="#" class="nav-link">ALUMNI</a></li>
+          
+            <li><a href="#" class="nav-link">FACILITIES <i class="material-icons">house_siding</i></a></li>
+            <li><a href="#" class="nav-link">CONTACTS <i class="material-icons">phone</i></a></li>
+            <li><a href="#" class="nav-link">ADMISSIONS <i class="material-icons">school</i></a></li>
+            <li><a href="#" class="nav-link">MEDIA <i class="material-icons">movie</i></a></li>
+            <li><a href="#" class="nav-link">ALUMNI <i class="material-icons">group</i></a></li>
+            <li><a href="../config/action.php?logout" class="nav-link">LOGOUT <span class="material-symbols-outlined">
+logout
+</span></a></li>
           </ul>
           
 
@@ -252,7 +264,7 @@ else if($facility === 'Astro Turf'){
           error_message.style.display = "none";
         }, 5000);
         </script>
-          <script src="/script.js"></script>     
+          <script src="../script.js"></script>     
           <script src="booking.js"></script>   
     </body>
     

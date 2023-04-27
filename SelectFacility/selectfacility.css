@@ -186,7 +186,7 @@ nav {
 .nav-link:hover {
   color: #baa217;
   transition: 0.4s ease;
-  text-decoration: underline;
+  /* text-decoration: underline; */
   
 }
 
@@ -254,5 +254,63 @@ nav {
   margin: 4px 2px;
   cursor: pointer;
 }
+
+.grid {
+  position: absolute;
+  top: 75%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: grid;
+  grid-template-columns: repeat(1, 15rem);
+  /* grid-template-rows: repeat(1, 15rem); */
+  grid-gap: 5px;
+  grid-gap: 1rem;
+}
+
+body {
+  height: 180vh;
+ background: url("../Images/Bgupsa\ .jpeg") no-repeat center center/cover; 
+
+
+}
+.cell {
+  height: 200px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  font-family: Arial;
+  font-size: 1.5rem;
+  background-color: #f2f3f3;
+  color: rgb(3, 3, 3);
+  text-transform: uppercase;
+  position: relative;
+  border-radius: 5px;
+  top: 180px;
+ }
+ 
+ .cell:hover {
+   background-color:#baa217;
+   color: rgb(255, 255, 255);
+   transition: 0.3s ease;
+   cursor: pointer;
+ }
+ 
+ .cell p {
+   display: flex;
+   position: absolute;
+ }
+ 
+ .cell:hover .menu {
+   transition-duration: 2.4s ease-in;
+   display: block;
+ }
+ 
+ .cell:hover p {
+   display: none;
+ }
+ .astroturf{
+  margin:25px 0px ;
+  
+ }
 
 }

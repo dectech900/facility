@@ -24,7 +24,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Times New Roman', Times, serif;
+    font-family: 'Atkinson Hyperlegible', sans-serif;
 }
 
 body {
@@ -35,7 +35,7 @@ body {
     background-repeat: no-repeat; /* prevents the image from repeating */
     background-position: center; /* centers the image in the background */
     overflow-x: hidden;
-    font-family: 'Times New Roman', Times, serif;
+    font-family: 'Atkinson Hyperlegible', sans-serif;
     overflow-x: hidden;
 }
 
@@ -226,5 +226,10 @@ nav {
 }
 .nav-links.active {
   transform: translateX(0);
+}
+.button5{
+  position: relative ;
+  left: 175px;
+  top: 632px;
 }
 }

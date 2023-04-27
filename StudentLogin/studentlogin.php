@@ -74,13 +74,13 @@ home_work
           <li><a href="#" class="nav-link">CONTACTS <i class="material-icons">phone</i></a></li>
           <li><a href="#" class="nav-link">ADMISSIONS <i class="material-icons">school</i></a></li>
             <li><a href="#" class="nav-link">MEDIA <i class="material-icons">movie</i></a></li>
-            <!-- <li><a href="../config/action.php?logout" class="nav-link">LOGOUT</a></li> -->
+           
 
           </ul>
         </nav>
         <button class="button button5"></button>
         
-          <script src="/script.js"></script>
+          <script src="../script.js"></script>
           <script src="../StudentLogin/studentLogin.js"></script>
         
     </body>

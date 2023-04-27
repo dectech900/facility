@@ -28,6 +28,7 @@ if(isset($_SESSION['uid'])){
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <body>
       
 
@@ -64,8 +65,9 @@ if(isset($_SESSION['uid'])){
           </div>
 
 
+
           <a href="../BookingPage/booking.php?facility=VolleyBall" class="cell" style=" text-decoration: none;">VolleyBall</a>
-          <a href="../BookingPage/booking.php?facility=Astro Turf" class="cell"  style=" text-decoration: none;" >Astro Turf</a>
+          <a href="../BookingPage/booking.php?facility=Astro Turf" class="cell astroturf "  style=" text-decoration: none;" >Astro Turf</a>
           <!-- <div class="cell" onclick="openBook()">Astro Turf</div> -->
 
           <!--Climbing Walls-->
@@ -76,6 +78,7 @@ if(isset($_SESSION['uid'])){
           </div>
           </div>
         </div>
+        
         
         
 
@@ -93,12 +96,14 @@ if(isset($_SESSION['uid'])){
   if(isset($_SESSION['uid'])){
     ?>
 
-<li><a href="../StudentLogin/Mybookings.php" class="nav-link">MY BOOKINGS</a></li>
-          <li><a href="../SelectFacility/selectfacility.php" class="nav-link">FACILITIES</a></li>
-          <li><a href="#" class="nav-link">CONTACTS</a></li>
-          <li><a href="#" class="nav-link">ADMISSIONS</a></li>
-          <li><a href="#" class="nav-link">MEDIA</a></li>
-          <li><a href="../config/action.php?logout" class="nav-link">LOGOUT</a></li>
+<li><a href="../StudentLogin/Mybookings.php" class="nav-link">MY BOOKINGS <span class="material-symbols-outlined"> calendar_month </span></i></a></li>
+          <li><a href="../SelectFacility/selectfacility.php" class="nav-link">FACILITIES <i class="material-icons">house_siding</i></a></li>
+          <li><a href="#" class="nav-link">CONTACTS <i class="material-icons">phone</i></a></li>
+          <li><a href="#" class="nav-link">ADMISSIONS <i class="material-icons">school</i></a></li>
+          <li><a href="#" class="nav-link">MEDIA<i class="material-icons">movie</i></a></li>
+          <li><a href="../config/action.php?logout" class="nav-link">LOGOUT <span class="material-symbols-outlined">
+logout
+</span></a></li>
     <?php
   }else{
     ?>
@@ -118,7 +123,7 @@ if(isset($_SESSION['uid'])){
       </nav>
   <button class="button button5"></button>
     
-        <script src="/script.js"></script>
+        <script src="../script.js"></script>
         <script src="selectfacility.js"></script>
         
     </body>
