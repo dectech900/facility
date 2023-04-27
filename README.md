@@ -1,4 +1,4 @@
-# Facility Booking System
+# UPSA Facility Booking System
 The UPSA Facility Booking System is a web-based application that allows users to reserve and schedule the use of University of Professional Studies, Accra facilities. The system offers a user-friendly interface for booking facilities such as Auditorium, Astro Turf, Tennis, volley, Hostel and basketball field.
 
 # Features
