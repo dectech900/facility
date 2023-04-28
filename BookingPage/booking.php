@@ -21,22 +21,43 @@ if(isset($_GET['date_error'])){
 
 $facilityPrice = 0;
 if($facility === 'LBC Auditorium'){
-$facilityPrice = 500;
+$facilityPrice = 7000;
 }else if($facility === 'Main Auditorium'){
-  $facilityPrice = 200;
+  $facilityPrice = 9000;
 }else if($facility === 'Side Confrence Auditorium'){
-  $facilityPrice = 250;
+  $facilityPrice = 6500;
   
 }
+else if($facility === 'Main Confrence Hall'){
+  $facilityPrice = 8200; 
+}
+
 else if($facility === 'LBC Ground Floor'){
-  $facilityPrice = 550; 
+  $facilityPrice = 5500; 
+}
+else if($facility === 'LBC Third  Floor'){
+  $facilityPrice = 5500; 
 }
 else if($facility === 'LBC Second Floor'){
-  $facilityPrice = 550; 
+  $facilityPrice = 5500; 
+}
+else if($facility === 'LBC Forth  Floor'){
+  $facilityPrice = 5500; 
 }
 else if($facility === 'Astro Turf'){
-  $facilityPrice = 800; 
+  $facilityPrice = 2000; 
 }
+else if($facility === 'Badminton Courts'){
+  $facilityPrice = 350; 
+}
+else if($facility === 'Martial Arts'){
+  $facilityPrice = 350; 
+}
+else if($facility === 'Table Tennis'){
+  $facilityPrice = 350; 
+}
+
+
 
 
 
@@ -58,6 +79,7 @@ else if($facility === 'Astro Turf'){
         <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">   
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />    
+        
     <body>
 
         <!--Booking Page-->
@@ -178,14 +200,14 @@ else if($facility === 'Astro Turf'){
 
                 
                       <div class="col-50 date-one">
-                        <div class="date" id="">
+                        <div class="datef" id="">
                           <label for="fromDate">From</label>
                           <input type="date" id="fromDate" name="fromDate">
                         </div>
                         
                       </div>
                       <div class="col-50 date-two">
-                        <div class="date" id="">
+                        <div class="datet" id="">
                           <label for="toDate">To</label>
                           <input type="date" id="toDate" name="toDate" >
                         </div>
@@ -225,7 +247,19 @@ else if($facility === 'Astro Turf'){
                   <input type="submit" value="CONFIRM" name="handleBookingSubmit" class="btn">
                 </div>
                 <div class="col-50">
-                  <input type="Reset" value="CANCEL" class="btn">
+                <input type="Reset" value="CANCEL" class="btn" onclick="openModal()">
+                <div id="myModal" class="modal50">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <p>Are you sure you want to cancel?</p>
+    <div class="yes-container">
+    <button class="yes" onclick="confirmCancel()">Yes</button>
+  </div>
+    <div class="no-container">
+    <button class="no" onclick="closeModal()">No</button>
+  </div>
+  </div>
+</div>
                 </div>
               </div>
                   </div>

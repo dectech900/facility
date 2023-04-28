@@ -20,3 +20,16 @@ backButton.addEventListener("click", function() {
    window.history.back();
 });
 
+// JavaScript
+function openModal() {
+  document.getElementById("myModal").style.display = "block";
+}
+
+function closeModal() {
+  document.getElementById("myModal").style.display = "none";
+}
+
+function confirmCancel() {
+  history.back();
+}
+

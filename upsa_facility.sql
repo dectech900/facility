@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 15, 2023 at 02:11 PM
+-- Generation Time: Apr 17, 2023 at 11:33 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.4.25
 
@@ -34,17 +34,12 @@ CREATE TABLE `bookings` (
   `lastname` varchar(60) NOT NULL,
   `email` varchar(150) NOT NULL,
   `phone` varchar(50) NOT NULL,
-  `city` varchar(80) NOT NULL,
   `facility` varchar(100) NOT NULL,
-  `ref_name` varchar(100) NOT NULL,
-  `ref_phone` varchar(50) NOT NULL,
-  `ref_relationship` varchar(255) NOT NULL,
-  `time_slot_1` varchar(255) NOT NULL,
-  `time_slot_2` varchar(255) NOT NULL,
-  `time_slot_3` varchar(255) NOT NULL,
-  `booking_attendees` int(11) NOT NULL,
-  `booking_court` varchar(255) NOT NULL,
-  `booking_time` varchar(255) NOT NULL,
+  `facilityPrice` varchar(100) NOT NULL,
+  `number_of_days` int(200) NOT NULL,
+  `total_price` varchar(200) NOT NULL,
+  `start_date` varchar(255) NOT NULL,
+  `end_date` varchar(244) NOT NULL,
   `declaration1` varchar(10) NOT NULL DEFAULT '0',
   `declaration2` varchar(10) NOT NULL,
   `declaration3` varchar(10) NOT NULL,
@@ -56,8 +51,12 @@ CREATE TABLE `bookings` (
 -- Dumping data for table `bookings`
 --
 
-INSERT INTO `bookings` (`id`, `uid`, `firstname`, `lastname`, `email`, `phone`, `city`, `facility`, `ref_name`, `ref_phone`, `ref_relationship`, `time_slot_1`, `time_slot_2`, `time_slot_3`, `booking_attendees`, `booking_court`, `booking_time`, `declaration1`, `declaration2`, `declaration3`, `created_at`, `updated_at`) VALUES
-(3, 1, 'Agyapong', 'Derrick', 'dectechbusiness900@gmail.com', '0242226290', '0242226290', 'Badminton Courts', 'Agyapong Derrick', '0242226290', 'Brother', '9/10/2021 12:00pm - 1:00pm', '9/10/2021 1:00pm - 2:00pm', '9/10/2021 12:00pm - 2:00pm', 100, '5', '2023-02-16  2023-02-18', 'on', 'on', 'on', '2023-02-02 19:21:02', '2023-02-02 19:21:02');
+INSERT INTO `bookings` (`id`, `uid`, `firstname`, `lastname`, `email`, `phone`, `facility`, `facilityPrice`, `number_of_days`, `total_price`, `start_date`, `end_date`, `declaration1`, `declaration2`, `declaration3`, `created_at`, `updated_at`) VALUES
+(3, 1, 'Agyapong', 'Derrick', 'dectechbusiness900@gmail.com', '0242226290', 'Badminton Courts', '', 0, '', '2023-02-16  2023-02-18', '', 'on', 'on', 'on', '2023-02-02 19:21:02', '2023-02-02 19:21:02'),
+(4, 1, 'Derrick', 'Agyapong', 'dectech900@gmail.com', '+233242226290', 'Main Auditorium', '', 0, '', '2023-04-16  2023-04-26', '', 'on', 'on', 'on', '2023-04-16 21:47:41', '2023-04-16 21:47:41'),
+(5, 1, 'Derrick', 'Agyapong', 'dectech900@gmail.com', '+233242226290', 'Main Auditorium', '', 0, '', '2023-04-16  2023-04-26', '', 'on', 'on', 'on', '2023-04-16 21:48:12', '2023-04-16 21:48:12'),
+(6, 1, 'Derrick', 'Agyapong', 'dectech900@gmail.com', '+233242226290', 'LBC Auditorium', '500', 2, '1,000.00', '2023-04-16  2023-04-18', '', 'on', 'on', 'on', '2023-04-16 23:17:42', '2023-04-16 23:17:42'),
+(7, 1, 'Derrick', 'Agyapong', 'dectech900@gmail.com', '+233242226290', 'LBC Auditorium', '500', 2, '1,000.00', '2023-04-16  2023-04-18', '', 'on', 'on', 'on', '2023-04-16 23:17:58', '2023-04-16 23:17:58');
 
 -- --------------------------------------------------------
 
@@ -84,7 +83,8 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `name`, `email`, `phone`, `student_id`, `password`, `user_type`, `created_at`, `updated_at`) VALUES
 (1, 'Kwasi Philip', 'philip@upsamail.com', '0243434232', '10062855', 'student', 'STUDENT', '2023-01-27 16:57:44', '2023-01-27 16:57:44'),
 (2, 'Bosompem Julius', 'admin@gmail.com', '02323423433', '11111', 'admin', 'ADMIN', '2023-02-02 23:27:16', '2023-02-02 23:27:16'),
-(3, 'Mavis Osei', 'guest@gmail.com', '00002323239', '22222', 'guest', 'GUEST', '2023-02-02 23:27:16', '2023-02-02 23:27:16');
+(3, 'Mavis Osei', 'guest@gmail.com', '00002323239', '22222', 'guest', 'GUEST', '2023-02-02 23:27:16', '2023-02-02 23:27:16'),
+(5, 'Guest', 'dectech900@gmail.com', '', '', '', 'GUEST', '2023-03-15 22:35:19', '2023-03-15 22:35:19');
 
 --
 -- Indexes for dumped tables
@@ -110,13 +110,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `bookings`
 --
 ALTER TABLE `bookings`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

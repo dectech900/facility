@@ -28,5 +28,3 @@ To install and set up the UPSA Facility Booking System, follow these steps:
 # Usage
 Once the application is installed and set up, users can access the booking system by navigating to the application URL. From there, they can search for facilities, view availability and pricing, and make bookings. Admins can access the dashboard to manage facilities, users, and bookings, as well as generate reports and analytics.
 
-# License
-The UPSA Facility Booking System, is released under the MIT License. Feel free to use and modify the application as needed.
